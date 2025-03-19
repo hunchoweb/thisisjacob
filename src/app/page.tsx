@@ -1,17 +1,22 @@
-// pages/index.js
-import Head from 'next/head';
-import Carousel from './components/Carousel';
+'use client';
+
+// import Carousel from './components/Carousel';
+import Header from './components/Header';
+import { BrowserRouter } from 'react-router-dom';
+import Hero from './components/Hero';
 
 export default function Home() {
   return (
-    <div>
-      <Head>
-        <title>This is Jacob Men&apos;s Fellowship</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className="flex items-center justify-center min-h-screen bg-gray-900">
-        <Carousel />
-      </main>
-    </div>
+    <BrowserRouter>
+      <div>
+        <main className="min-h-screen">
+          <div className='relative'>
+            <Header currentPage="home" />
+            <Hero />
+            {/* <Carousel /> */}
+          </div>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
