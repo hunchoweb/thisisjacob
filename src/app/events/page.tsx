@@ -1,10 +1,15 @@
-'use client';
-
 import Header from "../components/Header"
-import EventCalendar from "../components/event-calendar"
 import Link from "next/link"
 import Image from "next/image"
+import dynamic from "next/dynamic"
+import { Suspense } from "react"
 import Footer from "../components/Footer"
+
+// Dynamically import the EventCalendar component
+const EventCalendar = dynamic(() => import("../components/event-calendar"), {
+  ssr: false,
+  loading: () => <div className="p-4 text-center">Loading calendar...</div>,
+})
 
 export default function EventsPage() {
   return (
@@ -75,7 +80,9 @@ export default function EventsPage() {
             <p className="text-gray-600 mb-8">
               Here you will find information on upcoming gatherings, retreats, conferences and more. Check back regularly or sign-up for the email newsletter to be the first to know!
             </p>
-            <EventCalendar />
+            <Suspense fallback={<div className="p-4 text-center">Loading calendar...</div>}>
+              <EventCalendar />
+            </Suspense>
           </div>
         </section>
 
