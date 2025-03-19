@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import Link from 'next/link';
 import Footer from './Footer';
 import MissionVision from './mission-vission';
@@ -6,14 +5,7 @@ import About from './about';
 import CoreValue from './coreValue';
 import Event from './event';
 import Join from './join';
-import dynamic from "next/dynamic"
-
-// Dynamically import components that use browser APIs
-const Testimonial = dynamic(() => import("../components/testimonial"), {
-  ssr: false,
-  loading: () => <div className="min-h-screen flex items-center justify-center">Loading testimonials...</div>,
-})
-
+import ClientTestimonial from "../components/client-testimonial"
 
 function Hero() {
     
@@ -62,11 +54,7 @@ function Hero() {
 
       <Event />
 
-      <Suspense
-        fallback={<div className="min-h-screen flex items-center justify-center">Loading testimonials...</div>}
-      >
-        <Testimonial />
-      </Suspense>
+      <ClientTestimonial />
 
       <Join />    
 

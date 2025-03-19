@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { useUser } from "@clerk/nextjs"
 import { cn } from "@/lib/utils"
