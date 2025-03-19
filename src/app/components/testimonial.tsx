@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const testimonials = [
@@ -26,7 +26,14 @@ const testimonials = [
 ]
 
 export default function Testimonial() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const [isMounted, setIsMounted] = useState(false)
+
+    // Add this useEffect to handle client-side initialization
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length)
@@ -43,7 +50,8 @@ export default function Testimonial() {
       <div className="relative h-full flex flex-col justify-center py-16 sm:py-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-center text-amber-400 mb-10 sm:mb-16">Testimonial</h2>
-
+          
+          {isMounted ? (
           <div className="relative">
             {/* Testimonial Cards */}
             <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
@@ -83,6 +91,9 @@ export default function Testimonial() {
               <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
+          ): (
+            <div className="text-center p-8">Loading testimonials...</div>
+          )}
         </div>
       </div>
     </section>

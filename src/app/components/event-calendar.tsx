@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -39,6 +39,12 @@ const daysOfWeek = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
 
 export default function EventCalendar() {
   const [currentDate, setCurrentDate] = useState(new Date(2024, 9)) // October 2024
+
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   const getDaysInMonth = (date: Date) => {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
@@ -88,6 +94,10 @@ export default function EventCalendar() {
     }
 
     return days
+  }
+
+  if (!isMounted) {
+    return <div className="p-4 text-center">Loading calendar...</div>
   }
 
   return (
