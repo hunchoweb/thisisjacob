@@ -1,10 +1,10 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { clerkClient } from "@clerk/nextjs/server"
-import { getAuth } from "@clerk/nextjs/server"
+// import { getAuth } from "@clerk/nextjs/server" // Removed unused import
 
 // Handle Paystack callback after payment
 export async function GET(request: NextRequest) {
-  const { userId } = await getAuth(request)
+  // const { userId } = await getAuth(request) // Removed unused variable
 
   try {
     const { searchParams } = new URL(request.url)
@@ -58,8 +58,7 @@ export async function GET(request: NextRequest) {
     })
 
     // Example usage of userId
-    const user = await client.users.getUser(userId)
-
+    // const user = await client.users.getUser(userId) // Removed unused variable
     return NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}/payment-success`)
   } catch (error) {
     console.error("Paystack callback error:", error)
