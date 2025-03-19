@@ -75,7 +75,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
             >
               Charity
             </Link>
-            <Link
+            {/* <Link
               href="/events"
               className={cn(
                 "text-white hover:text-amber-300 transition-colors",
@@ -83,7 +83,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
               )}
             >
               Events
-            </Link>
+            </Link> */}
             <Link
               href="/contact"
               className={cn(
