@@ -3,13 +3,11 @@
 import Link from "next/link"
 import { Play } from "lucide-react"
 import Header from "../components/Header"
-import { BrowserRouter } from "react-router-dom"
 import PreviousSermons from "../components/previous-sermons";
 import Footer from "../components/Footer";
 
 export default function SermonsPage() {
   return (
-    <BrowserRouter>
     
     <main className="min-h-screen">
       <div className="relative">
@@ -73,7 +71,6 @@ export default function SermonsPage() {
         <Footer />
       </div>
     </main>
-    </BrowserRouter>
   )
 }
 
