@@ -1,24 +1,38 @@
 import React from 'react'
 
 function CoreValue() {
+  const values = [
+    "PRAYER",
+    "GODLINESS",
+    "PURITY",
+    "CHARACTER REFORMATION",
+    "MEEKNESS",
+    "TRUTH",
+    "RECONCILIATION",
+    "HOLINESS",
+  ]
   return (
     <section className="py-24">
   <div className="max-w-7xl mx-auto px-4">
     <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Our Core Values</h2>
     
     {/* Values Banner */}
-    <div className="relative overflow-hidden bg-yellow-400 -mx-4 mb-16">
-      <div className="py-4 relative" style={{ transform: 'rotate(-2deg) scale(1.1)' }}>
-        <div className="flex items-center justify-center space-x-4 text-black font-medium">
-          {['PRAYER', 'GODLINESS', 'PURITY', 'CHARACTER REFORMATION', 'MEEKNESS', 'TRUTH', 'RECONCILIATION', 'HOLINESS'].map((value, index) => (
-            <div key={index} className="flex items-center">
-              <span>{value}</span>
-              {index < 7 && <span className="mx-2">•</span>}
+    <div className="relative mb-16 ">
+          {/* Gold/Amber Background Strip */}
+          <div className="absolute inset-0 bg-amber-300 transform -skew-y-2 z-0"></div>
+
+          {/* Black Values Strip */}
+          <div className="relative bg-black py-4 transform skew-y-2">
+            <div className="flex items-center justify-center flex-wrap gap-x-4 px-4">
+              {values.map((value, index) => (
+                <div key={index} className="flex items-center text-white">
+                  <span className="text-sm sm:text-base font-medium">{value}</span>
+                  {index < values.length - 1 && <span className="text-amber-400 mx-2">♦</span>}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </div>
 
     {/* Cards */}
     <div className="space-y-8">
