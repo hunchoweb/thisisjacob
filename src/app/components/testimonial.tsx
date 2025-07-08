@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
 const testimonials = [
   {
@@ -46,8 +47,17 @@ export default function Testimonial() {
   return (
     <section className="relative h-[90vh] px-8 bg-white">
         <div className="absolute inset-0 -skew-y-3 bg-black" />
+        {/* Layer.png overlay */}
+        <Image
+          src="/Layer.png"
+          alt="Layered graphic"
+          fill
+          className="absolute top-0 left-0 w-full h-auto z-10 pointer-events-none select-none"
+          style={{ objectFit: 'cover' }}
+          priority
+        />
       {/* Content */}
-      <div className="relative h-full flex flex-col justify-center py-16 sm:py-0">
+      <div className="relative h-full flex flex-col justify-center py-16 sm:py-0 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-center text-amber-400 mb-10 sm:mb-16">Testimonial</h2>
           
