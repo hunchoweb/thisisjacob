@@ -64,7 +64,7 @@ export default function AboutPage() {
             {/* Right: Founder Image */}
             <div className="flex justify-center">
               <div className="w-full max-w-md h-100 rounded-lg shadow-lg flex items-center justify-center overflow-hidden">
-                <Image src="/assets/Isi-Igenegba.png" alt="Isi Igenegba" width={320} height={400} className="object-cover w-full h-full" />
+                <Image src="/assets/Isi-Igenegba.jpg" alt="Isi Igenegba" width={320} height={400} className="object-cover w-full h-full" />
               </div>
             </div>
           </div>
