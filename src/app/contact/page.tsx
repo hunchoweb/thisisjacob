@@ -42,7 +42,7 @@ export default function ContactPage() {
           <div className="max-w-7xl mx-auto">
             {/* Large Image - Positioned to overlap hero and form sections */}
             <div className="hidden lg:block absolute right-8 -top-48 w-[600px] aspect-[4/5] bg-gray-100 rounded-2xl overflow-hidden">
-              <Image src="/placeholder.svg" alt="Contact Us" fill className="object-cover" />
+              <Image src="/assets/contact-us.jpg" alt="Contact Us" fill className="object-cover" />
             </div>
 
             {/* Form Section */}
