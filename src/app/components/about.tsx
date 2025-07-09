@@ -13,10 +13,10 @@ function About() {
               </h2>
               <div className="space-y-6">
                 <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 max-w-md leading-relaxed">
-                  Jacob Global Men&apos;s Fellowship is a non-denominational, globally inclusive organization dedicated to empowering men to become transformational leaders in their communities and beyond. Focused on spiritual growth and leadership development, the Fellowship provides a platform for men of all backgrounds to come together, united by a shared purpose of strengthening their relationship with God through prayer, worship, and mentorship.
+                  This is Jacob Global Men&apos;s Fellowship is a non-denominational, globally inclusive organization dedicated to empowering men to become transformational leaders in their communities and beyond. Focused on spiritual growth and leadership development, the Fellowship provides a platform for men of all backgrounds to come together, united by a shared purpose of strengthening their relationship with God through prayer, worship, and mentorship.
                 </p>
                 <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 max-w-md leading-relaxed">
-                  By fostering a supportive and faith-driven environment, Jacob Global Men&apos;s Fellowship aims to equip men with the tools they need to lead with integrity, inspire positive change, and fulfill their divine potential.
+                  By fostering a supportive and faith-driven environment, This is Jacob Global Men&apos;s Fellowship aims to equip men with the tools they need to lead with integrity, inspire positive change, and fulfill their divine potential.
                 </p>
               </div>
             </div>

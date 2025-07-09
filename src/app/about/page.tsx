@@ -49,7 +49,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
             {/* Left: Heading + 3 paragraphs */}
             <div>
-              <h3 className="text-3xl sm:text-4xl font-bold mb-3">Isi Igenegba</h3>
+              <h3 className="text-3xl sm:text-4xl font-bold mb-3">Apostle Isibhakhomen Igenegba</h3>
               <div className="h-[2px] w-36 bg-black mb-5" />
               <p className="text-gray-700 mb-4">
                 Isi Igenegba is a visionary leader and transformational voice committed to rebuilding lives, nurturing purpose, and raising generations of God-centered, impactful leaders. As the Founder and Spiritual Head of This is Jacob Global Men&apos;s Fellowship, she brings deep expertise in spiritual mentorship, leadership development, and global outreach to empower men to live with integrity, influence, and purpose.
