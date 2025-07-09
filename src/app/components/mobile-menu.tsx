@@ -54,14 +54,14 @@ export default function MobileMenu({ currentPage }: MobileMenuProps) {
                 Home
               </Link>
               <Link
-                href="/sermons"
+                href="/about"
                 className={cn(
                   "text-white text-xl hover:text-amber-300 transition-colors",
                   currentPage === "sermons" && "text-amber-400",
                 )}
                 onClick={toggleMenu}
               >
-                Sermons
+                About
               </Link>
               <Link
                 href="/counseling"

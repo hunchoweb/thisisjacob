@@ -21,14 +21,14 @@ export default function AboutPage() {
           <div className="flex-1 ">
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">About Us</h1>
             <p className="text-base sm:text-lg text-gray-300 mb-4 max-w-lg">
-              Jacob Global Men&apos;s Fellowship is a non-denominational, globally inclusive organization dedicated to empowering men to become transformational leaders in their communities and beyond.
+              This is Jacob Global Men&apos;s Fellowship is a non-denominational, globally inclusive organization dedicated to empowering men to become transformational leaders in their communities and beyond.
             </p>
             <p className="text-base sm:text-lg text-gray-300 max-w-lg">
               Focused on spiritual growth and leadership development, the fellowship provides a platform for men of all backgrounds to come together, united by a shared purpose of strengthening their relationship with God through prayer, worship, and mentorship.
             </p>
           </div>
-          <div className="flex-1 flex justify-center items-center">
-            <div className="w-full max-w-md h-64 sm:h-80 bg-gray-200 rounded-lg shadow-lg flex items-center justify-center overflow-hidden">
+          <div className="hidden flex-1 sm:flex justify-center items-center">
+            <div className="w-full sm:max-w-md h-64 sm:h-80 bg-gray-200 rounded-lg shadow-lg flex items-center justify-center overflow-hidden">
               <Image src="/assets/About-Us.jpg" alt="About" width={400} height={300} className="object-cover w-full h-full" />
             </div>
           </div>
