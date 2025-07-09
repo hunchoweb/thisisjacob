@@ -51,7 +51,7 @@ export default function CharityPage() {
 
                 {/* Right Column - Image */}
                 <div className="relative aspect-[4/3] bg-gray-100 rounded-2xl overflow-hidden">
-                  <Image src="/placeholder.svg" alt="Charity" fill className="object-cover" />
+                  <Image src="/assets/Charity.jpg" alt="Charity" fill className="object-cover" />
                 </div>
               </div>
             </div>

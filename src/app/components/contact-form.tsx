@@ -101,7 +101,7 @@ export default function ContactForm() {
           onChange={(e) => setFormData({ ...formData, agreeToTerms: e.target.checked })}
         />
         <label htmlFor="terms" className="text-sm text-gray-600">
-          I agree to be contacted by Jacob&apos;s Global Men&apos;s Fellowship. By providing my information, I agree to receive
+          I agree to be contacted by This is Jacob&apos;s Global Men&apos;s Fellowship. By providing my information, I agree to receive
           messages from the charity.
         </label>
       </div>

@@ -87,8 +87,8 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/worship" className="text-gray-300 hover:text-amber-400 transition-colors text-sm sm:text-base">
-                Worship
+              <Link href="/charity" className="text-gray-300 hover:text-amber-400 transition-colors text-sm sm:text-base">
+                Charity
               </Link>
             </li>
             <li>
@@ -97,8 +97,8 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/charity-events" className="text-gray-300 hover:text-amber-400 transition-colors text-sm sm:text-base">
-                Charity & Events
+              <Link href="/events" className="text-gray-300 hover:text-amber-400 transition-colors text-sm sm:text-base">
+                Events
               </Link>
             </li>
             <li>

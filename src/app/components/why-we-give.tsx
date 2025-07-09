@@ -49,7 +49,7 @@ export default function WhyWeGive() {
               <div>
                 <h3 className="text-xl font-bold mb-2">To Build a Legacy of Faith and Service</h3>
                 <p className="text-gray-600">
-                  Giving is an act of faith, supporting a mission that goes beyond just meeting immediate needs. At
+                  Giving is an act of faith, supporting a mission that goes beyond just meeting immediate needs. At This is
                   Jacob Global Men&apos;s Fellowship, our charitable initiatives help inspire future generations, reinforcing
                   values of compassion, integrity, and service to God and others, creating a lasting impact within our
                   communities and beyond.
