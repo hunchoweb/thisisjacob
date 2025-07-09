@@ -7,22 +7,16 @@ import Image from "next/image"
 const testimonials = [
   {
     name: "John O. Benson",
-    image: "/placeholder.svg",
+    image: "/assets/Testimonial1.jpg",
     quote:
       "Joining Jacob Global Men's Fellowship has completely transformed my prayer life and leadership skills. I feel more connected to God and have grown in ways I never thought possible.",
   },
   {
     name: "Michael A. Will",
-    image: "/placeholder.svg",
+    image: "/assets/Testimonial2.jpg",
     quote:
       "This fellowship has been a true blessing. The teachings and prayers have guided me through some of the most challenging moments in my life, and my personal growth has been remarkable.",
-  },
-  {
-    name: "Michael A. Will",
-    image: "/placeholder.svg",
-    quote:
-      "This fellowship has been a true blessing. The teachings and prayers have guided me through some of the most challenging moments in my life, and my personal growth has been remarkable.",
-  },
+  }
   // Add more testimonials as needed
 ]
 
@@ -73,7 +67,14 @@ export default function Testimonial() {
                   }`}
                 >
                   <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-                    <div className="w-16 h-16 sm:w-24 sm:h-24 bg-gray-200 rounded-lg flex-shrink-0 mx-auto sm:mx-0"></div>
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      width={96}
+                      height={96}
+                      className="w-16 h-16 sm:w-24 sm:h-24 rounded-lg object-cover flex-shrink-0 mx-auto sm:mx-0"
+                      priority
+                    />
                     <div>
                       <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 text-center sm:text-left">
                         {testimonial.name}

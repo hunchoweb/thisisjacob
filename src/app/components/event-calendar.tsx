@@ -7,13 +7,13 @@ import { cn } from "@/lib/utils"
 // Mock events data
 const events = [
   {
-    date: "2024-10-09",
+    date: "2025-07-09",
     time: "4:15pm",
     title: "Men's Bible Study",
     subtitle: "Driven by faith",
   },
   {
-    date: "2024-10-27",
+    date: "2025-07-27",
     time: "5:00pm",
     title: "This is Jacob",
     subtitle: "Conference",
@@ -38,7 +38,7 @@ const months = [
 const daysOfWeek = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
 
 export default function EventCalendar() {
-  const [currentDate, setCurrentDate] = useState(new Date(2024, 9)) // October 2024
+  const [currentDate, setCurrentDate] = useState(new Date(2025, 6)) // July 2025
 
   const [isMounted, setIsMounted] = useState(false)
 
@@ -83,10 +83,13 @@ export default function EventCalendar() {
         <div key={day} className={cn("h-32 bg-gray-100 p-2", dayEvents.length > 0 && "bg-gray-50")}>
           <div className="font-medium">{day}</div>
           {dayEvents.map((event, index) => (
-            <div key={index} className="mt-1 p-1 text-xs bg-white rounded shadow-sm">
-              <div className="text-gray-600">{event.time}</div>
-              <div className="font-medium">{event.title}</div>
-              <div className="text-gray-600">{event.subtitle}</div>
+            <div
+              key={index}
+              className="mt-1 p-1 text-xs bg-white rounded shadow-sm h-20 overflow-y-auto"
+            >
+              <div className="text-gray-600 text-xs md:text-lg">{event.time}</div>
+              <div className="font-medium text-xs md:text-lg">{event.title}</div>
+              <div className="text-gray-600 hidden md:block">{event.subtitle}</div>
             </div>
           ))}
         </div>,

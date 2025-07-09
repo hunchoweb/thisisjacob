@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   // output: 'export',
   images: {
-    domains: ['hebbkx1anhila5yf.public.blob.vercel-storage.com', 'img.clerk.com'], // Add your external image domains here
+    domains: ['hebbkx1anhila5yf.public.blob.vercel-storage.com', 'img.clerk.com', 'placehold.co'], // Add your external image domains here
   },
 };
 

@@ -49,13 +49,13 @@ export default function Navbar({ currentPage }: NavbarProps) {
               Home
             </Link>
             <Link
-              href="/sermons"
+              href="/about"
               className={cn(
                 "text-white hover:text-amber-300 transition-colors",
-                currentPage === "sermons" && "border-b-2 border-amber-400",
+                currentPage === "about" && "border-b-2 border-amber-400",
               )}
             >
-              Sermons
+              About
             </Link>
             <Link
               href="/counseling"

@@ -3,20 +3,19 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 
-const geistOriya = localFont({
-  src: "./fonts/oriya.woff",
-  variable: "--font-geist-oriya",
-  weight: "100 900",
-});
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const outfit = localFont({
+  src: [
+    { path: "./fonts/Outfit-Thin.woff", weight: "100", style: "normal" },
+    { path: "./fonts/Outfit-ExtraLight.woff", weight: "200", style: "normal" },
+    { path: "./fonts/Outfit-Light.woff", weight: "300", style: "normal" },
+    { path: "./fonts/Outfit-Regular.woff", weight: "400", style: "normal" },
+    { path: "./fonts/Outfit-Medium.woff", weight: "500", style: "normal" },
+    { path: "./fonts/Outfit-SemiBold.woff", weight: "600", style: "normal" },
+    { path: "./fonts/Outfit-Bold.woff", weight: "700", style: "normal" },
+    { path: "./fonts/Outfit-ExtraBold.woff", weight: "800", style: "normal" },
+    { path: "./fonts/Outfit-Black.woff", weight: "900", style: "normal" },
+  ],
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
@@ -33,7 +32,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${geistOriya.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${outfit.variable} antialiased`}
         >
           {children}
         </body>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 function CoreValue() {
   const values = [
@@ -39,7 +40,15 @@ function CoreValue() {
       {/* Nourish Your Spirit */}
       <div className="bg-gray-100 rounded-lg overflow-hidden">
         <div className="grid md:grid-cols-2 gap-8 p-8">
-          <div className="bg-gray-200 aspect-square rounded-lg" /> {/* Placeholder for image */}
+          <div className="relative aspect-square rounded-lg overflow-hidden">
+            <Image
+              src="/assets/Nourish Your Spirit.PNG"
+              alt="Nourish Your Spirit"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
           <div className="flex flex-col justify-center">
             <h3 className="text-2xl font-bold mb-4">Nourish Your Spirit</h3>
             <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 max-w-md">
@@ -55,7 +64,15 @@ function CoreValue() {
       {/* Receive Spiritual Guidance */}
       <div className="bg-gray-100 rounded-lg overflow-hidden">
         <div className="grid md:grid-cols-2 gap-8 p-8">
-          <div className="bg-gray-200 aspect-square rounded-lg" /> {/* Placeholder for image */}
+          <div className="relative aspect-square rounded-lg overflow-hidden">
+            <Image
+              src="/assets/Receive Spiritual Guidance 2.jpg"
+              alt="Receive Spiritual Guidance"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
           <div className="flex flex-col justify-center">
             <h3 className="text-2xl font-bold mb-4">Receive Spiritual Guidance</h3>
             <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 max-w-md">
@@ -71,7 +88,15 @@ function CoreValue() {
       {/* Lend a Hand */}
       <div className="bg-gray-100 rounded-lg overflow-hidden">
         <div className="grid md:grid-cols-2 gap-8 p-8">
-          <div className="bg-gray-200 aspect-square rounded-lg" /> {/* Placeholder for image */}
+          <div className="relative aspect-square rounded-lg overflow-hidden">
+            <Image
+              src="/assets/Lend a Hand, Change a Life.PNG"
+              alt="Lend a Hand, Change a Life"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
           <div className="flex flex-col justify-center">
             <h3 className="text-2xl font-bold mb-4">Lend a Hand, Change a Life</h3>
             <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 max-w-md">

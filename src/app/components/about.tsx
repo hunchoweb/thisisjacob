@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 function About() {
   return (
@@ -19,8 +20,13 @@ function About() {
                 </p>
               </div>
             </div>
-            <div className="bg-gray-200 rounded-lg shadow-lg overflow-hidden">
-              <div className="aspect-square w-full max-w-md h-64 sm:h-80 rounded-lg overflow-hidden" /> {/* Placeholder for about image */}
+            <div className="bg-gray-200 rounded-lg shadow-lg overflow-hidden relative aspect-square w-full max-w-xl h-[400px] sm:h-[490px]">
+              <Image
+                src="/assets/About-Us.jpg"
+                alt="About Jacob Global Men's Fellowship"
+                fill
+                className="object-cover rounded-lg"
+              />
             </div>
           </div>
         </div>
