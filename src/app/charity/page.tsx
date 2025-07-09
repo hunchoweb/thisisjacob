@@ -16,13 +16,13 @@ export default function CharityPage() {
           {/* Dark Background with Pattern */}
           <div className="absolute inset-0 bg-black">
             <Image
-          src="/Layer.png"
-          alt="Layered graphic"
-          fill
-          className="absolute top-0 left-0 w-full h-auto z-10 pointer-events-none select-none"
-          style={{ objectFit: 'cover' }}
-          priority
-        />
+              src="/Layer.png"
+              alt="Layered graphic"
+              fill
+              className="absolute top-0 left-0 w-full h-auto z-10 pointer-events-none select-none"
+              style={{ objectFit: 'cover' }}
+              priority
+            />
           </div>
 
           {/* Navbar */}

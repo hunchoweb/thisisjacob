@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 function Event() {
@@ -19,9 +20,9 @@ function Event() {
             <h3 className="text-white text-xl font-bold">
               Men&apos;s Bible Study - <span className="font-normal">Driven by faith</span>
             </h3>
-            <button className="bg-yellow-400 px-4 py-2 rounded-full text-black text-sm font-medium hover:bg-yellow-300 transition-colors">
+            <Link href='/sign-up' className="bg-yellow-400 px-4 py-2 rounded-full text-black text-sm font-medium hover:bg-yellow-300 transition-colors">
               Learn More
-            </button>
+            </Link>
           </div>
         </div>
       </div>

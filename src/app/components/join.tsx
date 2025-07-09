@@ -20,7 +20,7 @@ function Join() {
               impact.
             </p>
             <Link
-              href="/join"
+              href="/sign-up"
               className="inline-flex items-center justify-center px-6 sm:px-8 py-3 rounded-full bg-amber-400 hover:bg-amber-500 text-black font-medium transition-colors"
             >
               Join now

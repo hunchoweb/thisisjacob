@@ -23,7 +23,7 @@ function Hero() {
               </p>
               <div className="mt-8">
                 <Link
-                  href="/join"
+                  href="/sign-up"
                   className="inline-flex items-center justify-center px-6 sm:px-8 py-3 rounded-lg bg-amber-400 hover:bg-amber-500 text-black font-medium transition-colors"
                 >
                   Join the Fellowship
