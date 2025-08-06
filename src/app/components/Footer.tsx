@@ -33,7 +33,7 @@ export default function Footer() {
             <h3 className="text-lg sm:text-xl font-bold mb-4">Contact</h3>
             <div className="space-y-2 text-gray-300 text-sm sm:text-base">
               <p>+234 812 846 8679</p>
-              <p>ThisIsJacob@gmail.com</p>
+              <p>Thisisjacobmenfellowship@gmail.com</p>
               <div className="flex space-x-4 mt-4">
                 <Link
                   href="https://facebook.com"
