@@ -100,7 +100,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
             {isSignedIn ? (
               <UserDropdown />
             ) : (
-              <Link href="/sign-up">
+              <Link href="/sign-in">
                 <button className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-amber-400 hover:bg-amber-500 text-black font-medium transition-colors">
                   Login
                 </button>

@@ -3,6 +3,7 @@ import Footer from './Footer';
 import MissionVision from './mission-vission';
 import About from './about';
 import CoreValue from './coreValue';
+import Community from './community';
 import Event from './event';
 import Join from './join';
 import ClientTestimonial from "../components/client-testimonial"
@@ -51,6 +52,8 @@ function Hero() {
       <About />
 
       <CoreValue />
+
+      <Community />
 
       <Event />
 

@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react";
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 // Mock events data
 const events = [
@@ -18,7 +18,13 @@ const events = [
     title: "This is Jacob",
     subtitle: "Conference",
   },
-]
+  {
+    date: "2025-08-29",
+    time: "6:30am",
+    title: "The Power of Repentance",
+    subtitle: "Conference",
+  },
+];
 
 const months = [
   "January",
@@ -33,74 +39,92 @@ const months = [
   "October",
   "November",
   "December",
-]
+];
 
-const daysOfWeek = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+const daysOfWeek = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
 export default function EventCalendar() {
-  const [currentDate, setCurrentDate] = useState(new Date(2025, 6)) // July 2025
+  const [currentDate, setCurrentDate] = useState(new Date()); // Current month and year
 
-  const [isMounted, setIsMounted] = useState(false)
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true)
-  }, [])
+    setIsMounted(true);
+  }, []);
 
   const getDaysInMonth = (date: Date) => {
-    return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
-  }
+    return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  };
 
   const getFirstDayOfMonth = (date: Date) => {
-    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay()
-    return firstDay === 0 ? 6 : firstDay - 1 // Adjust to make Monday = 0
-  }
+    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+    return firstDay === 0 ? 6 : firstDay - 1; // Adjust to make Monday = 0
+  };
 
   const goToPreviousMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1))
-  }
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() - 1)
+    );
+  };
 
   const goToNextMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1))
-  }
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() + 1)
+    );
+  };
 
   const renderCalendarDays = () => {
-    const daysInMonth = getDaysInMonth(currentDate)
-    const firstDayOfMonth = getFirstDayOfMonth(currentDate)
-    const days = []
+    const daysInMonth = getDaysInMonth(currentDate);
+    const firstDayOfMonth = getFirstDayOfMonth(currentDate);
+    const days = [];
 
     // Add empty cells for days before the first day of the month
     for (let i = 0; i < firstDayOfMonth; i++) {
-      days.push(<div key={`empty-${i}`} className="h-32 bg-gray-100" />)
+      days.push(<div key={`empty-${i}`} className="h-32 bg-gray-100" />);
     }
 
     // Add cells for each day of the month
     for (let day = 1; day <= daysInMonth; day++) {
-      const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), day)
-      const dateString = date.toISOString().split("T")[0]
-      const dayEvents = events.filter((event) => event.date === dateString)
+      // Create date string in YYYY-MM-DD format without timezone conversion
+      const dateString = `${currentDate.getFullYear()}-${String(
+        currentDate.getMonth() + 1
+      ).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+      const dayEvents = events.filter((event) => event.date === dateString);
 
       days.push(
-        <div key={day} className={cn("h-32 bg-gray-100 p-2", dayEvents.length > 0 && "bg-gray-50")}>
+        <div
+          key={day}
+          className={cn(
+            "h-32 bg-gray-100 p-2",
+            dayEvents.length > 0 && "bg-gray-50"
+          )}
+        >
           <div className="font-medium">{day}</div>
           {dayEvents.map((event, index) => (
             <div
               key={index}
               className="mt-1 p-1 text-xs bg-white rounded shadow-sm h-20 overflow-y-auto"
             >
-              <div className="text-gray-600 text-xs md:text-lg">{event.time}</div>
-              <div className="font-medium text-xs md:text-lg">{event.title}</div>
-              <div className="text-gray-600 hidden md:block">{event.subtitle}</div>
+              <div className="text-gray-600 text-xs md:text-lg">
+                {event.time}
+              </div>
+              <div className="font-medium text-xs md:text-lg">
+                {event.title}
+              </div>
+              <div className="text-gray-600 hidden md:block">
+                {event.subtitle}
+              </div>
             </div>
           ))}
-        </div>,
-      )
+        </div>
+      );
     }
 
-    return days
-  }
+    return days;
+  };
 
   if (!isMounted) {
-    return <div className="p-4 text-center">Loading calendar...</div>
+    return <div className="p-4 text-center">Loading calendar...</div>;
   }
 
   return (
@@ -110,7 +134,14 @@ export default function EventCalendar() {
         <div className="relative">
           <select
             value={currentDate.getMonth()}
-            onChange={(e) => setCurrentDate(new Date(currentDate.getFullYear(), Number.parseInt(e.target.value)))}
+            onChange={(e) =>
+              setCurrentDate(
+                new Date(
+                  currentDate.getFullYear(),
+                  Number.parseInt(e.target.value)
+                )
+              )
+            }
             className="appearance-none bg-transparent pr-8 py-1 pl-2 border rounded-md"
           >
             {months.map((month, index) => (
@@ -129,7 +160,11 @@ export default function EventCalendar() {
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button onClick={goToNextMonth} className="p-2 hover:bg-gray-100 rounded-full" aria-label="Next month">
+          <button
+            onClick={goToNextMonth}
+            className="p-2 hover:bg-gray-100 rounded-full"
+            aria-label="Next month"
+          >
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
@@ -150,6 +185,5 @@ export default function EventCalendar() {
         <div className="grid grid-cols-7 gap-4">{renderCalendarDays()}</div>
       </div>
     </div>
-  )
+  );
 }
-

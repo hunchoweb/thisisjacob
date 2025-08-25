@@ -182,7 +182,7 @@ export default function UserDropdown() {
           )}
 
           {/* Sign out section */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-4">
             <button
               onClick={() => signOut()}
               className="px-4 py-2 rounded-full bg-amber-400 hover:bg-amber-500 text-black font-medium transition-colors"

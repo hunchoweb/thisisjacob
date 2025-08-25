@@ -1,72 +1,74 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { useSignUp } from "@clerk/nextjs"
-import { useRouter } from "next/navigation"
-import { User, Mail, Lock, AlertCircle } from "lucide-react"
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useSignUp } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+import { User, Mail, Lock, AlertCircle } from "lucide-react";
 
 export default function SignUpPage() {
-  const { isLoaded, signUp } = useSignUp()
-  const router = useRouter()
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
+  const { isLoaded, signUp } = useSignUp();
+  const router = useRouter();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (!isLoaded) return
+    if (!isLoaded) return;
 
     try {
-      setIsLoading(true)
-      setError("")
+      setIsLoading(true);
+      setError("");
 
       await signUp.create({
         firstName: name.split(" ")[0],
         lastName: name.split(" ").slice(1).join(" "),
         emailAddress: email,
         password,
-      })
+      });
 
       await signUp.prepareEmailAddressVerification({
         strategy: "email_code",
-      })
+      });
 
-      router.push("/verify-email")
+      router.push("/verify-email");
     } catch (err: unknown) {
       if (err instanceof Error) {
-        setError(err.message || "Something went wrong. Please try again.")
+        setError(err.message || "Something went wrong. Please try again.");
       } else {
-        setError("Something went wrong. Please try again.")
+        setError("Something went wrong. Please try again.");
       }
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
-  const handleSocialSignUp = async (provider: "oauth_google" | "oauth_facebook" | "oauth_apple") => {
-    if (!isLoaded) return
+  const handleSocialSignUp = async (
+    provider: "oauth_google" | "oauth_facebook" | "oauth_apple"
+  ) => {
+    if (!isLoaded) return;
 
     try {
       await signUp.authenticateWithRedirect({
         strategy: provider,
         redirectUrl: "/sso-callback",
         redirectUrlComplete: "/",
-      })
+      });
     } catch (err: unknown) {
       if (err instanceof Error) {
-        setError(err.message || "Something went wrong. Please try again.")
+        setError(err.message || "Something went wrong. Please try again.");
       } else {
-        setError("Something went wrong. Please try again.")
+        setError("Something went wrong. Please try again.");
       }
     }
-  }
+  };
 
   return (
     <div className="min-h-screen grid md:grid-cols-2">
@@ -74,23 +76,23 @@ export default function SignUpPage() {
       <div className="relative bg-black p-8 flex flex-col">
         {/* Background Pattern */}
         <Image
-              src="/Layer.png"
-              alt="Layered graphic"
-              fill
-              className="absolute top-0 left-0 w-full h-auto z-10 pointer-events-none select-none"
-              style={{ objectFit: 'cover' }}
-              priority
-            />
+          src="/Layer.png"
+          alt="Layered graphic"
+          fill
+          className="absolute top-0 left-0 w-full h-auto z-10 pointer-events-none select-none"
+          style={{ objectFit: "cover" }}
+          priority
+        />
 
         {/* Logo */}
         <Link href="/" className="relative z-10">
           <div className="w-full">
             <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Primary_Logo-hss9H0MyWCUXMOApZcNcepFIv83s2R.png"
-                alt="This is Jacob Logo"
-                width={150}
-                height={75}
-                className="w-auto h-12 md:h-16"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Primary_Logo-hss9H0MyWCUXMOApZcNcepFIv83s2R.png"
+              alt="This is Jacob Logo"
+              width={150}
+              height={75}
+              className="w-auto h-12 md:h-16"
             />
           </div>
         </Link>
@@ -98,7 +100,9 @@ export default function SignUpPage() {
         {/* Content */}
         <div className="flex-1 flex flex-col items-start justify-center relative z-10">
           <h1 className="text-4xl font-bold text-white mb-4">Welcome!</h1>
-          <p className="text-gray-400 mb-8">Already have an account? Login to continue your journey with us.</p>
+          <p className="text-gray-400 mb-8">
+            Already have an account? Login to continue your journey with us.
+          </p>
           <Link
             href="/sign-in"
             className="px-8 py-3 rounded-full bg-amber-400 hover:bg-amber-500 text-black font-medium transition-colors"
@@ -184,7 +188,13 @@ export default function SignUpPage() {
                 onClick={() => handleSocialSignUp("oauth_google")}
                 className="flex justify-center items-center py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z"
                     fill="#FFC107"
@@ -208,7 +218,13 @@ export default function SignUpPage() {
                 onClick={() => handleSocialSignUp("oauth_facebook")}
                 className="flex justify-center items-center py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 17.9895 4.3882 22.954 10.125 23.8542V15.4688H7.07812V12H10.125V9.35625C10.125 6.34875 11.9166 4.6875 14.6576 4.6875C15.9701 4.6875 17.3438 4.92188 17.3438 4.92188V7.875H15.8306C14.34 7.875 13.875 8.80008 13.875 9.75V12H17.2031L16.6711 15.4688H13.875V23.8542C19.6118 22.954 24 17.9895 24 12Z"
                     fill="#1877F2"
@@ -224,7 +240,13 @@ export default function SignUpPage() {
                 onClick={() => handleSocialSignUp("oauth_apple")}
                 className="flex justify-center items-center py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M17.0754 12.3674C17.0654 10.8954 17.7904 9.8004 19.2644 9.0264C18.4294 7.8414 17.1504 7.2024 15.4604 7.0884C13.8524 6.9764 12.1254 8.0004 11.4884 8.0004C10.8164 8.0004 9.2834 7.1334 8.0444 7.1334C5.5824 7.1674 2.9834 9.0824 2.9834 12.9914C2.9834 14.1764 3.1924 15.4034 3.6094 16.6694C4.1834 18.3594 6.3054 22.0004 8.5224 21.9424C9.6384 21.9184 10.4394 21.1174 11.9334 21.1174C13.3754 21.1174 14.1174 21.9424 15.3824 21.9424C17.6224 21.9074 19.5424 18.6004 20.0834 16.9074C16.9424 15.3824 17.0754 12.4584 17.0754 12.3674ZM14.3394 5.6114C15.5234 4.2004 15.3824 2.9004 15.3484 2.4004C14.2794 2.4584 13.0604 3.1074 12.3674 3.9084C11.5994 4.7684 11.1824 5.8374 11.2644 7.0534C12.4134 7.1354 13.4134 6.6934 14.3394 5.6114Z"
                     fill="black"
@@ -236,6 +258,5 @@ export default function SignUpPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
