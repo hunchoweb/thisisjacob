@@ -21,8 +21,8 @@ function CoreValue() {
             <div className="grid md:grid-cols-2 gap-8 p-8">
               <div className="relative aspect-square rounded-lg overflow-hidden">
                 <Image
-                  src="/assets/Nourish Your Spirit.PNG"
-                  alt="Nourish Your Spirit"
+                  src="/assets/city.jpg"
+                  alt="Education"
                   fill
                   className="object-cover"
                   priority
@@ -57,8 +57,8 @@ function CoreValue() {
             <div className="grid md:grid-cols-2 gap-8 p-8">
               <div className="relative aspect-square rounded-lg overflow-hidden">
                 <Image
-                  src="/assets/Receive Spiritual Guidance 2.jpg"
-                  alt="Receive Spiritual Guidance"
+                  src="/assets/medicals.jpg"
+                  alt="Healthcare"
                   fill
                   className="object-cover"
                   priority
